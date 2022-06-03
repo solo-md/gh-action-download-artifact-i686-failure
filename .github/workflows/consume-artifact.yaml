@@ -1,0 +1,15 @@
+name: Consume artifact
+
+on:
+  workflow_call:
+
+jobs:
+  consume_artifact:
+    runs-on: ubuntu-latest
+    container:
+      image: i686/ubuntu
+    steps:
+      - run: mkdir data && echo "info" >> data/info.txt
+      - uses: actions/download-artifact@v3
+        with:
+          name: my_artifact
