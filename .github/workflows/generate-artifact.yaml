@@ -1,0 +1,15 @@
+name: Generate artifact
+
+on:
+  workflow_call:
+
+jobs:
+  generate_artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - run: mkdir data && echo "hello world" >> data/info.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my_artifact
+          path: data
+          retention-days: 1
