@@ -1,0 +1,13 @@
+name: Download artifact failure for i686
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+
+  generate:
+    uses: solo-md/gh-action-download-artifact-i686-failure/.github/workflows/generate-artifact.yaml@main
+
+  consume:
+    needs: generate
+    uses: solo-md/gh-action-download-artifact-i686-failure/.github/workflows/consume-artifact.yaml@main
